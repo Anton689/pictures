@@ -26,7 +26,7 @@ export function App() {
     }
 
     const hadler = (key: string, id: number)=> {
-        if(key === 'e'){
+        if(key === 'Delete'){
             setImages(images.filter(f => f.id !== id))
         }
     }

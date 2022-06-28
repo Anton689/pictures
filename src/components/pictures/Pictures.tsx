@@ -1,7 +1,6 @@
 import React, {useEffect, useState, KeyboardEvent} from 'react';
 import s from './Pictures.module.css'
 import {ImagesType} from '../../types/types';
-import {log} from 'util';
 
 type PicturesType = {
     pictures: ImagesType
@@ -21,15 +20,15 @@ export const Pictures = ({pictures, setCategoryOnClick, hadler}: PicturesType) =
         setCategoryOnClick(category)
     }
 
-    // const changeIsActiveOnclick = (itemId: number) => {
-    //     setChangedPics(changedPics.map(p => {
-    //         if (p.id === itemId) {
-    //             return {...p, isActive: !p.isActive}
-    //         } else {
-    //             return {...p, isActive: false}
-    //         }
-    //     }))
-    // }
+    const changeIsActiveOnclick = (itemId: number) => {
+        setChangedPics(changedPics.map(p => {
+            if (p.id === itemId) {
+                return {...p, isActive: !p.isActive}
+            } else {
+                return {...p, isActive: false}
+            }
+        }))
+    }
 
     const onKey = (e: React.KeyboardEvent, id: number) =>{
         hadler(e.key, id)
@@ -42,14 +41,17 @@ export const Pictures = ({pictures, setCategoryOnClick, hadler}: PicturesType) =
             {
                 changedPics.map(p => (
                     <div key={p.id}
-                         onClick={() => {
+                         onClick={() => {changeIsActiveOnclick(p.id)
 
                          }}
                          tabIndex={-1}
                          onKeyDown={(e)=>{onKey(e, p.id)}}
-                         className={s.gridItem}>
+                         className={p.isActive ? s.active : s.gridItem}>
+
                         <img className={s.img}
-                             src={p.img} alt="img"/>
+                             src={p.img}
+                             alt="img"/>
+
                         <div className={s.inner}>
                             <button onClick={(e) => {
                                 onClickHandler(e.currentTarget.innerText)

@@ -12,16 +12,11 @@
     /*border: 7px solid transparent;*/
 }
 
-.gridItem:focus{
+.active{
     outline: none;
+    position: relative;
     border: 7px solid #4FE24A;
 }
-
-/*.active:focus{*/
-/*    outline: none;*/
-/*    position: relative;*/
-/*    border: 7px solid #4FE24A;*/
-/*}*/
 
 .inner{
     position: absolute;
