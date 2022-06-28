@@ -10,14 +10,18 @@
 .gridItem {
     position: relative;
     /*border: 7px solid transparent;*/
-
-
 }
 
-.active{
+.gridItem:focus{
+    outline: none;
     border: 7px solid #4FE24A;
-    border-radius: 10px;
 }
+
+/*.active:focus{*/
+/*    outline: none;*/
+/*    position: relative;*/
+/*    border: 7px solid #4FE24A;*/
+/*}*/
 
 .inner{
     position: absolute;

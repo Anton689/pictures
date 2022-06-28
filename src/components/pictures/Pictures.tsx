@@ -1,50 +1,53 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState, KeyboardEvent} from 'react';
 import s from './Pictures.module.css'
 import {ImagesType} from '../../types/types';
-import {START_VALUE} from '../../constants/constants';
+import {log} from 'util';
 
 type PicturesType = {
     pictures: ImagesType
-    category: string
     setCategoryOnClick: (category: string) => void
+    hadler: (key: string, id: number) => void
 }
 
-export const Pictures = ({pictures, category, setCategoryOnClick}: PicturesType) => {
-    console.log('rendered')
+export const Pictures = ({pictures, setCategoryOnClick, hadler}: PicturesType) => {
 
-    const [d, setd] =useState(false)
+    const [changedPics, setChangedPics] = useState(pictures)
 
-
-    let filteredPics = pictures
-
-    if (!category.includes(START_VALUE)) {
-        filteredPics = pictures.filter(p => p.category.includes(category))
-    }
+    useEffect(()=>{
+        setChangedPics(pictures)
+    },[pictures])
 
     const onClickHandler = (category: string) => {
         setCategoryOnClick(category)
     }
 
-    const changeIsActiveOnclick = (itemId: number) =>{
-        filteredPics = filteredPics.map(p => {
-            if(p.id === itemId){
-                return {...p, isActive: !p.isActive}
-            }else if(p.isActive){
-                return {...p, isActive: false}
-            }else{
-                return p
-            }
-        })
-        console.log(filteredPics)
+    // const changeIsActiveOnclick = (itemId: number) => {
+    //     setChangedPics(changedPics.map(p => {
+    //         if (p.id === itemId) {
+    //             return {...p, isActive: !p.isActive}
+    //         } else {
+    //             return {...p, isActive: false}
+    //         }
+    //     }))
+    // }
+
+    const onKey = (e: React.KeyboardEvent, id: number) =>{
+        hadler(e.key, id)
+
     }
+    console.log(changedPics)
 
     return (
         <div className={s.grid}>
             {
-                filteredPics.map(p => (
+                changedPics.map(p => (
                     <div key={p.id}
-                         onClick={()=>{changeIsActiveOnclick(p.id)}}
-                         className={p.isActive ? s.active : s.gridItem}>
+                         onClick={() => {
+
+                         }}
+                         tabIndex={-1}
+                         onKeyDown={(e)=>{onKey(e, p.id)}}
+                         className={s.gridItem}>
                         <img className={s.img}
                              src={p.img} alt="img"/>
                         <div className={s.inner}>

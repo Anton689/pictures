@@ -1,36 +1,40 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import s from './App.module.css';
 import {Header} from '../components/header/Header';
 import {Pictures} from '../components/pictures/Pictures';
 import styleContainer from '../common/styles/Container.module.css';
 import {Tabs} from '../components/tabs/Tabs';
 import {LoadButton} from '../components/loadButton/LoadButton';
-import {additionalPictures, pictures} from '../common/dataSet';
+import {pictures} from '../common/dataSet';
 import {ImagesType} from '../types/types';
 import {START_VALUE} from '../constants/constants';
 
-function App() {
+export function App() {
 
     const [images, setImages] = useState<ImagesType>(pictures)
-    const [maxPic, setMaxPics] = useState(false)
     const [currentCategory, setCurrentCategory] = useState(START_VALUE)
 
-    useEffect(()=> {
-        if(maxPic){
-            setMaxPics(false)
-        }
-    },[])
-
     const addImgOnclick = () => {
-        if(!maxPic){
-            const newState = [...images, ...additionalPictures]
-            setMaxPics(true)
-            return setImages(newState)
-        }
+        const newState = [...images,
+            ...images.slice(-9)
+                .map(m => ({...m, id: m.id + 9, name: m.name + '2'}))]
+        setImages(newState)
     }
 
     const setCategory = (categoryName: string) => {
         setCurrentCategory(categoryName)
+    }
+
+    const hadler = (key: string, id: number)=> {
+        if(key === 'e'){
+            setImages(images.filter(f => f.id !== id))
+        }
+    }
+
+    let filteredPics = images
+
+    if (currentCategory !== START_VALUE) {
+        filteredPics = images.filter(p => p.category === currentCategory)
     }
 
     return (
@@ -41,8 +45,8 @@ function App() {
                     <Tabs setCategoryOnClick={setCategory}
                           category={currentCategory}/>
                     <Pictures setCategoryOnClick={setCategory}
-                              pictures={images}
-                              category={currentCategory}/>
+                              pictures={filteredPics}
+                              hadler={hadler}/>
                     <LoadButton onClick={addImgOnclick}/>
                 </div>
 
@@ -50,6 +54,4 @@ function App() {
         </div>
     );
 }
-
-export default App;
 
