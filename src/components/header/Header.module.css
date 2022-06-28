@@ -1,0 +1,55 @@
+.header{
+    background-color: #28293E;
+}
+
+.innerNav{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 16px;
+}
+
+.logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 140px;
+}
+
+.logoName{
+    padding-left: 15px;
+    font-size: 24px;
+    font-weight: 700;
+    color: #ffff;
+}
+
+.innerText{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 93px;
+}
+
+.heading{}
+
+.text{
+    font-size: 72px;
+    font-weight: 500;
+    letter-spacing: -3px;
+    color: #ffff;
+}
+
+.description{
+    max-width: 650px;
+}
+
+.descriptionText{
+    text-align: center;
+    font-size: 16px;
+    line-height: 32px;
+    color: #ffff;
+    padding-bottom: 56px;
+
+}
+
+
+

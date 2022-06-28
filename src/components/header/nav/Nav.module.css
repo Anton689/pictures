@@ -1,0 +1,43 @@
+.links{
+    width: 100%;
+    max-width: 522px;
+    margin: 0 70px;
+    display: flex;
+    align-items: center;
+}
+
+.linksList{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+
+}
+
+.item{
+    font-size: 16px;
+    color: #ffff;
+    opacity: 1;
+    transition: all .3s;
+}
+
+.item:hover{
+    opacity: 0.5;
+}
+
+.button{
+    padding: 16px 38px 15px 38px;
+    background: transparent;
+    width: 138px;
+    height: 48px;
+    border-radius: 5px;
+    font-size: 14px;
+    text-transform: uppercase;
+    border: 1px solid #707070;
+    color: #ffff;
+    cursor: pointer;
+}
+
+.button:hover{
+    background-color: rgba(112, 112, 112, 0.06);
+    transition: all .3s;
+}
