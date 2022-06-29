@@ -7,16 +7,20 @@ export const Nav = () => {
             <nav className={s.links}>
                 <ul className={s.linksList}>
                     <li className={s.item}>
-                        <a className={s.link} href="src/components/header/nav/Nav#">About</a>
+                        <a className={s.link}
+                           href="src/components/header/nav/Nav#">About</a>
                     </li>
                     <li className={s.item}>
-                        <a className={s.link} href="src/components/header/nav/Nav#">Services</a>
+                        <a className={s.link}
+                           href="src/components/header/nav/Nav#">Services</a>
                     </li>
                     <li className={s.item}>
-                        <a className={s.link} href="src/components/header/nav/Nav#">Pricing</a>
+                        <a className={s.link}
+                           href="src/components/header/nav/Nav#">Pricing</a>
                     </li>
                     <li className={s.item}>
-                        <a className={s.link} href="src/components/header/nav/Nav#">Blog</a>
+                        <a className={s.link}
+                           href="src/components/header/nav/Nav#">Blog</a>
                     </li>
                 </ul>
             </nav>

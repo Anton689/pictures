@@ -23,7 +23,8 @@ export const Header = () => {
                     </div>
                     <div className={s.description}>
                         <p className={s.descriptionText}>
-                            Agency provides a full service range including technical skills,
+                            Agency provides a full service range including technical
+                            skills,
                             design, business understanding.
                         </p>
                     </div>

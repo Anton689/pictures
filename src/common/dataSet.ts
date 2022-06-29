@@ -20,15 +20,3 @@ export const pictures: ImagesType = [
     {id: 8, name: 'CalC', category: 'Design', img: calC, isActive: false},
     {id: 9, name: 'Sport', category: 'Branding', img: sport, isActive: false}
 ]
-
-export const additionalPictures: ImagesType = [
-    {id: 10, name: 'SOFA 2', category: 'Design', img: sofa, isActive: false},
-    {id: 11, name: 'KeyBoard 2', category: 'Branding', img: keyBoard, isActive: false},
-    {id: 12, name: 'Work Media 2', category: 'Illustration', img: workMedia, isActive: false},
-    {id: 13, name: 'DDDone 2', category: 'Motion', img: dddone, isActive: false},
-    {id: 14, name: 'Abstract 2', category: 'Design', img: abstract, isActive: false},
-    {id: 15, name: 'HandP 2', category: 'Branding', img: handP, isActive: false},
-    {id: 16, name: 'Architect 2', category: 'Motion', img: architect, isActive: false},
-    {id: 17, name: 'CalC 2', category: 'Design', img: calC, isActive: false},
-    {id: 18, name: 'Sport 2', category: 'Branding', img: sport, isActive: false}
-]

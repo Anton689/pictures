@@ -9,6 +9,7 @@
 
 .gridItem {
     position: relative;
+    outline: none;
     /*border: 7px solid transparent;*/
 }
 

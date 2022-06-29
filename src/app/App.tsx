@@ -7,16 +7,22 @@ import {Tabs} from '../components/tabs/Tabs';
 import {LoadButton} from '../components/loadButton/LoadButton';
 import {pictures} from '../common/dataSet';
 import {ImagesType} from '../types/types';
-import {START_VALUE} from '../constants/constants';
+import {DELETE, START_VALUE} from '../constants/constants';
 
 export function App() {
 
     const [images, setImages] = useState<ImagesType>(pictures)
     const [currentCategory, setCurrentCategory] = useState(START_VALUE)
 
+    let filteredPics = images
+
+    if (currentCategory !== START_VALUE) {
+        filteredPics = images.filter(({category}) => category === currentCategory)
+    }
+
     const addImgOnclick = () => {
         const newState = [...images,
-            ...images.slice(-9)
+            ...pictures.slice(-9)
                 .map(m => ({...m, id: m.id + 9, name: m.name + '2'}))]
         setImages(newState)
     }
@@ -25,17 +31,14 @@ export function App() {
         setCurrentCategory(categoryName)
     }
 
-    const hadler = (key: string, id: number)=> {
-        if(key === 'Delete'){
-            setImages(images.filter(f => f.id !== id))
+    const deleteItem = (key: string, itemId: number, isActive: boolean) => {
+        if (key === DELETE && isActive) {
+            let filteredImages = images.filter(({id}) => id !== itemId)
+            setImages(filteredImages)
         }
     }
 
-    let filteredPics = images
-
-    if (currentCategory !== START_VALUE) {
-        filteredPics = images.filter(p => p.category === currentCategory)
-    }
+    const isDisableButton = images.length === 18
 
     return (
         <div className={s.app}>
@@ -44,12 +47,14 @@ export function App() {
                 <div className={styleContainer.container}>
                     <Tabs setCategoryOnClick={setCategory}
                           category={currentCategory}/>
+
                     <Pictures setCategoryOnClick={setCategory}
                               pictures={filteredPics}
-                              hadler={hadler}/>
-                    <LoadButton onClick={addImgOnclick}/>
-                </div>
+                              deleteItem={deleteItem}/>
 
+                    <LoadButton onClick={addImgOnclick}
+                                disable={isDisableButton}/>
+                </div>
             </div>
         </div>
     );

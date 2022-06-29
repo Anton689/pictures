@@ -3,10 +3,11 @@ import s from './LoadButton.module.css';
 
 type LoadButtonType = {
     onClick: () => void
+    disable: boolean
 }
 
 
-export const LoadButton = ({onClick}:LoadButtonType) => {
+export const LoadButton = ({onClick, disable}: LoadButtonType) => {
 
     const handleOnclick = () => {
         onClick()
@@ -15,6 +16,7 @@ export const LoadButton = ({onClick}:LoadButtonType) => {
     return (
         <div className={s.inner}>
             <button onClick={handleOnclick}
+                    disabled={disable}
                     className={s.button}>
                 load more
             </button>
