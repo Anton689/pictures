@@ -1,6 +1,6 @@
 ## About
 
-Small size SPA for test task.
+Small size SPA for test task. Project adaptived for mobile devices.
 
 ## Functionality
 
