@@ -5,7 +5,7 @@
 .innerNav{
     display: flex;
     justify-content: space-between;
-    margin-top: 16px;
+    padding-top: 16px;
 }
 
 .logo{
@@ -48,7 +48,19 @@
     line-height: 32px;
     color: #ffff;
     padding-bottom: 56px;
+}
 
+@media(max-width: 1040px){
+    .innerNav{
+        justify-content: center;
+    }
+    .text{
+        font-size: 56px;
+    }
+    .descriptionText{
+        word-break: break-word;
+        font-size: 14px;
+    }
 }
 
 

@@ -10,13 +10,13 @@
 .gridItem {
     position: relative;
     outline: none;
-    /*border: 7px solid transparent;*/
 }
 
 .active{
     outline: none;
     position: relative;
     border: 7px solid #4FE24A;
+    border-radius: 12px;
 }
 
 .inner{
@@ -51,6 +51,22 @@
     color: #FFFFFF;
 }
 
-/*.img{*/
-/*    border: 7px solid #4FE24A;*/
-/*}*/
+.img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+@media(max-width: 1099px){
+    .grid{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media(max-width: 1040px){
+    .grid{
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+

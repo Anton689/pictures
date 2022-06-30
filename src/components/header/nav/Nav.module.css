@@ -41,3 +41,9 @@
     background-color: rgba(112, 112, 112, 0.06);
     transition: all .3s;
 }
+
+@media(max-width: 1040px){
+    .links,.linksList,.item, .button{
+        display: none;
+    }
+}

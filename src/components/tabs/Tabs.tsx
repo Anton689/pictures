@@ -1,8 +1,9 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import s from './Tabs.module.css';
+import {Select} from '../select/Select';
 
 
-const options = [
+export const options = [
     {id: '1', name: 'Show All'},
     {id: '2', name: 'Design'},
     {id: '3', name: 'Branding'},
@@ -14,13 +15,34 @@ type TabsType = {
     category: string
 }
 
-export const Tabs = ({setCategoryOnClick, category}: TabsType) => {
+const WIDTH = 991
 
+export const Tabs = ({setCategoryOnClick, category}: TabsType) => {
+    const ref: any = useRef();
+
+    const [isChangedWidth, setIsChangedWidth] = React.useState(false);
     const [active, setActive] = useState(category)
+
+    const resizeHandler = () => {
+        const {clientWidth} = ref.current || {}
+        if (clientWidth < WIDTH) {
+            setIsChangedWidth(true)
+        } else {
+            setIsChangedWidth(false)
+        }
+    }
 
     useEffect(() => {
         setActive(category)
     }, [category])
+
+    useEffect(() => {
+        window.addEventListener('resize', resizeHandler);
+        resizeHandler();
+        return () => {
+            window.removeEventListener('resize', resizeHandler);
+        };
+    }, [])
 
     const onClickHandler = (category: string) => {
         setCategoryOnClick(category)
@@ -28,10 +50,12 @@ export const Tabs = ({setCategoryOnClick, category}: TabsType) => {
     }
 
     return (
-        <div className={s.inner}>
+        <div ref={ref} className={s.inner}>
             <div className={s.items}>
-                {
-                    options.map(o => (
+                {isChangedWidth
+                    ? <Select setCategoryOnClick={setCategoryOnClick}
+                              category={category}/>
+                    : options.map(o => (
                         <span key={o.id}
                               datatype={o.name}
                               className={active === o.name ? s.active : s.item}

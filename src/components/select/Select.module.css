@@ -1,0 +1,14 @@
+.select{
+    width: 100%;
+    border: 1px solid #F3D1BF;
+    border-radius: 6px;
+    max-width: 329px;
+    height: 48px;
+    padding-left: 16px;
+    padding-right: 16px;
+    appearance: none;
+    background-image: url('/src/images/arrow.svg');
+    background-repeat: no-repeat;
+    background-position: bottom 50% right 16px;
+}
+
