@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/pictures/static/css/main.53336e96.css",
+    "main.js": "/pictures/static/js/main.2d1157ac.js",
+    "static/media/sofa.svg": "/pictures/static/media/sofa.460fd1394e526ffc809ec344720eef92.svg",
+    "static/media/abstract.svg": "/pictures/static/media/abstract.7f007e1cb89a9f62594fa88d1b88a404.svg",
+    "static/media/architect.svg": "/pictures/static/media/architect.ecff797c7a9b2464ae5f864846c1f2d0.svg",
+    "static/media/sport.svg": "/pictures/static/media/sport.dd6ac91b450e5daef1726d94492e89a0.svg",
+    "static/media/DDDone.svg": "/pictures/static/media/DDDone.0c769637a6aacc54fcebe2c2965061d7.svg",
+    "static/media/keyboard.svg": "/pictures/static/media/keyboard.be6d01d6d1703fa3d6ff631cb549cdb4.svg",
+    "static/media/workMedia.svg": "/pictures/static/media/workMedia.9720b99bdc511de4c815a1e08be94f3a.svg",
+    "static/media/handp.svg": "/pictures/static/media/handp.2979e5bb0a3601eca8a2674b520a97a0.svg",
+    "static/media/calc.svg": "/pictures/static/media/calc.2692d268d78b9bb07f794ae218ec8860.svg",
+    "static/media/logo.svg": "/pictures/static/media/logo.1c59f2c8f141dbf4c9c349f7f3b0676d.svg",
+    "index.html": "/pictures/index.html",
+    "static/media/arrow.svg": "/pictures/static/media/arrow.5069cd441d4b6345c24e.svg",
+    "main.53336e96.css.map": "/pictures/static/css/main.53336e96.css.map",
+    "main.2d1157ac.js.map": "/pictures/static/js/main.2d1157ac.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.53336e96.css",
+    "static/js/main.2d1157ac.js"
+  ]
+}
